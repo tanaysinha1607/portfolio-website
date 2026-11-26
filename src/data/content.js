@@ -180,7 +180,6 @@ const allProjects = [
     id: "adaptive-risk-engine",
     title: "Adaptive Risk Engine",
     subtitle: "Real-time Trading Risk Dashboard",
-    poster: "/images/adaptiveengine_pic.png",
     art: { from: "#22c55e", to: "#0a0a0a" },
     tags: ["FastAPI", "PostgreSQL", "WebSockets", "Python"],
     pitch: "A real-time risk engine that scores exposure, leverage, volatility and anomaly signals live.",
@@ -196,9 +195,7 @@ const allProjects = [
     id: "aegis",
     title: "Aegis",
     subtitle: "Dual-Engine Fraud Detection",
-    poster: "/images/aegis_pic.png",
     art: { from: "#64748b", to: "#020617" },
-    posterPosition: "left 35%",
     tags: ["Transformer", "GNN", "FAISS", "RAG", "Python"],
     pitch: "A fraud detection system combining deep learning and explainability for near-real-time decisions.",
     bullets: [
@@ -256,9 +253,8 @@ export const experience = [
 export const bizedge = {
   id: "bizedge",
   title: "BizEdge",
-  subtitle: "Government intelligence for Indian business · by On2NextNow",
-  poster: "/images/bizedge_pic.png",
-  posterPosition: "left top",
+  subtitle: "Government intelligence · by On2NextNow",
+  art: { from: "#2563eb", to: "#0b1220" },
   badge: "LIVE PRODUCT",
   tags: ["Python", "Claude Haiku 4.5", "PIB data", "22 sectors"],
   pitch:
