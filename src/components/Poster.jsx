@@ -8,7 +8,7 @@ function titleSize(title = "", large, compact) {
   const longestWord = Math.max(...title.split(/\s+/).map((w) => w.length));
   if (compact) return longestWord > 6 ? "text-[1.35rem] md:text-2xl" : "text-3xl md:text-4xl";
   if (large) return n > 18 ? "text-5xl md:text-7xl" : "text-6xl md:text-8xl";
-  if (n > 22) return "text-2xl md:text-[1.7rem]";
+  if (n > 22 || longestWord > 11) return "text-2xl md:text-[1.7rem]";
   if (n > 14) return "text-[1.7rem] md:text-3xl";
   return "text-3xl md:text-4xl";
 }

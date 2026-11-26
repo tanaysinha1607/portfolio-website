@@ -109,8 +109,6 @@ const SETU = {
   title: "Setu",
   subtitle: "Adaptive AI credit risk for microfinance",
   meta: "Google DeepMind Bangalore Hackathon 2026 · Top 25",
-  poster: "/images/setu_pic.png",
-  posterPosition: "center",
   art: { from: "#14b8a6", to: "#0a0e1a" },
   tags: ["Gemma · llama.cpp", "Gemini", "Google ADK", "FastAPI", "React", "Three.js"],
   pitch:
@@ -164,7 +162,6 @@ const allProjects = [
     title: "ResumeMatch-AI",
     subtitle: "Resume ↔ Job Description Matching",
     meta: "March 2026",
-    poster: "/images/resumematch_logo.png",
     art: { from: "#6366f1", to: "#0b1026" },
     tags: ["MERN", "React", "NLP", "REST APIs"],
     pitch: "An AI platform that matches resumes to job descriptions with ATS-style scoring.",
