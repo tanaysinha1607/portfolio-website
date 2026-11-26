@@ -237,11 +237,9 @@ export const experience = [
   {
     id: "on2nextnow",
     title: "On2NextNow",
-    subtitle: "Director · Built BizEdge",
-    meta: "November 2025 – Present",
-    poster: "/images/bizedge_pic.png",
-    posterPosition: "left top",
-    art: { from: "#3b82f6", to: "#0b1220" },
+    subtitle: "Director",
+    meta: "November 2025 – Present · Built BizEdge",
+    art: { from: "#e50914", to: "#111827" },
     tags: ["Python", "Claude Haiku 4.5", "PIB data", "Email digests"],
     pitch:
       "At On2NextNow I designed, built and deployed BizEdge — the company's government-intelligence product for Indian business. It's live and onboarding invite-only early users.",
