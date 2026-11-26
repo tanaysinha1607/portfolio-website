@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-netflixRed: #e50914;
+  --color-netflixBlack: #141414;
+  --color-netflixDark: #181818;
+  --font-display: "Bebas Neue", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #141414;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hero-photo { object-position: var(--pos-mobile); }
+
+/* Feather the hero photo into the black background on desktop */
+@media (min-width: 768px) {
+  .hero-photo {
+    object-position: var(--pos-desktop);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 32%, #000 72%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, #000 32%, #000 72%, transparent 100%);
+  }
+}
+
+/* "Now Playing" equaliser bars */
+.eq-bar {
+  height: 100%;
+  animation: eq 0.9s ease-in-out infinite alternate;
+  transform-origin: bottom;
+}
+@keyframes eq {
+  0% { transform: scaleY(0.25); }
+  50% { transform: scaleY(1); }
+  100% { transform: scaleY(0.45); }
+}
