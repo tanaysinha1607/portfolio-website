@@ -85,7 +85,46 @@ export const profiles = [
 /* Projects                                                            */
 /* ------------------------------------------------------------------ */
 
-export const projects = [
+
+const ARIA = {
+  id: "aria",
+  title: "ARIA",
+  subtitle: "AI candidate ranking · Redrob Hackathon",
+  meta: "Redrob AI Hackathon 2026 · Top 25 · Team CoffeeNCode",
+  art: { from: "#f43f5e", to: "#1a0610" },
+  tags: ["Python", "FAISS", "Sentence Transformers", "NetworkX", "Streamlit"],
+  pitch:
+    "Ranks 100,000 candidates against a Senior AI Engineer job description — going beyond keyword matching with semantic embeddings, skill-graph reasoning, behavioural signals and integrity checks.",
+  bullets: [
+    "Five-signal scoring engine: structural career evidence, semantic similarity (MiniLM embeddings + FAISS), a PMI-weighted skill graph, 23 behavioural signals in 5 clusters, and an integrity multiplier.",
+    "Honeypot-style anomaly detection (skill-duration mismatch, keyword stuffing, impossible timelines) — 0% flagged profiles in the final top 100.",
+    "Ranks all 100K candidates in ~32 seconds on CPU. I owned the data & artifacts pipeline — embeddings, FAISS index, skill graph, behavioural and integrity features — backed by 37 artifact tests.",
+  ],
+  githubLink: "https://github.com/tanaysinha1607/aria",
+  demoLink: "https://aria-redrob.streamlit.app",
+};
+
+const SETU = {
+  id: "setu",
+  title: "Setu",
+  subtitle: "Adaptive AI credit risk for microfinance",
+  meta: "Google DeepMind Bangalore Hackathon 2026 · Top 25",
+  poster: "/images/setu_pic.png",
+  posterPosition: "center",
+  art: { from: "#14b8a6", to: "#0a0e1a" },
+  tags: ["Gemma · llama.cpp", "Gemini", "Google ADK", "FastAPI", "React", "Three.js"],
+  pitch:
+    "Helps microfinance field officers assess unbanked borrowers in seconds from messy inputs — SMS logs, handwritten ledger photos and voice notes. Reason locally, escalate only when it matters.",
+  bullets: [
+    "Hybrid edge–cloud routing: an on-device Gemma model (llama.cpp, quantised GGUF) extracts financials from SMS privately and offline; low-confidence or high-risk cases escalate to Gemini.",
+    "Reads handwritten ledger photos and spoken income descriptions to build structured credit scorecards for borrowers with no formal credit history.",
+    "Gemini Live voice Q&A lets field officers simply ask why a borrower was rated the way they were.",
+  ],
+  githubLink: "https://github.com/tanaysinha1607/Setu",
+  demoLink: "https://setu-lime-theta.vercel.app/",
+};
+
+const allProjects = [
   {
     id: "nexus",
     title: "Nexus",
@@ -170,6 +209,10 @@ export const projects = [
   },
 ];
 
+// Display order everywhere (Top Picks etc.)
+const PROJECT_ORDER = ["lockin", "nexus", "resumematch-ai", "aria", "setu", "adaptive-risk-engine", "aegis"];
+export const projects = PROJECT_ORDER.map((id) => [...allProjects, ARIA, SETU].find((p) => p.id === id));
+
 /* ------------------------------------------------------------------ */
 /* Experience & ventures                                               */
 /* ------------------------------------------------------------------ */
@@ -194,18 +237,41 @@ export const experience = [
   {
     id: "on2nextnow",
     title: "On2NextNow",
-    subtitle: "Director",
+    subtitle: "Director · Built BizEdge",
     meta: "November 2025 – Present",
-    art: { from: "#e50914", to: "#111827" },
-    tags: ["Python", "Anthropic API", "Knowledge Graph", "NLP"],
+    poster: "/images/bizedge_pic.png",
+    posterPosition: "left top",
+    art: { from: "#3b82f6", to: "#0b1220" },
+    tags: ["Python", "Claude Haiku 4.5", "PIB data", "Email digests"],
     pitch:
-      "An AI pipeline that turns government releases into business intelligence: summaries, risk/opportunity scoring and entity extraction.",
+      "At On2NextNow I designed, built and deployed BizEdge — the company's government-intelligence product for Indian business. It's live and onboarding invite-only early users.",
     bullets: [
-      "Scales across ministries through configuration alone.",
-      "Validated on Health and Finance across 125+ real government releases.",
+      "Checks the Press Information Bureau every four hours for releases from all central ministries and de-duplicates them.",
+      "AI writes a business summary for each release, tags it to 22 sectors, pulls out the key figures and rates risk and opportunity — with suggested next steps.",
+      "Delivered as a ranked feed, personalised morning emails and per-ministry briefings for banks, pharma, PE/VC, consulting and law firms.",
     ],
+    demoLink: "https://bizedge.on2nextnow.com/",
   },
+
 ];
+
+export const bizedge = {
+  id: "bizedge",
+  title: "BizEdge",
+  subtitle: "Government intelligence for Indian business · by On2NextNow",
+  poster: "/images/bizedge_pic.png",
+  posterPosition: "left top",
+  badge: "LIVE PRODUCT",
+  tags: ["Python", "Claude Haiku 4.5", "PIB data", "22 sectors"],
+  pitch:
+    "Know what the government just did — and what it means for your business. I built and deployed BizEdge for On2NextNow: it turns every central-ministry press release into a business summary with a risk & opportunity rating.",
+  bullets: [
+    "Live product, invite-only while onboarding early users from banks, NBFCs, pharma, PE/VC, consulting and law firms.",
+    "Automated pipeline: PIB checked every four hours, AI summaries, 22-sector tagging, key-figure extraction, risk & opportunity ratings.",
+    "Personalised morning emails by ministry and sector, plus one-page ministry briefings for board notes and client updates.",
+  ],
+  demoLink: "https://bizedge.on2nextnow.com/",
+};
 
 /* ------------------------------------------------------------------ */
 /* Achievements                                                        */
@@ -227,7 +293,9 @@ export const achievements = [
     title: "Google DeepMind",
     subtitle: "Bangalore Hackathon 2026 · Top 25",
     art: { from: "#4285f4", to: "#0f172a" },
-    pitch: "Top 25 at the Google DeepMind Bangalore 2026 hackathon.",
+    pitch: "Top 25 at the Google DeepMind Bangalore 2026 hackathon, with Setu — adaptive AI credit risk for microfinance.",
+    githubLink: "https://github.com/tanaysinha1607/Setu",
+    demoLink: "https://setu-lime-theta.vercel.app/",
   },
   {
     id: "samsung-ennovatex",
@@ -248,7 +316,9 @@ export const achievements = [
     title: "Redrob AI Hackathon",
     subtitle: "2026 · Top 25",
     art: { from: "#dc2626", to: "#1c1917" },
-    pitch: "Top 25 at the Redrob AI Hackathon 2026.",
+    pitch: "Top 25 at the Redrob AI Hackathon 2026, with ARIA — ranking 100,000 candidates beyond keyword matching.",
+    githubLink: "https://github.com/tanaysinha1607/aria",
+    demoLink: "https://aria-redrob.streamlit.app",
   },
   {
     id: "leetcode",
@@ -408,7 +478,9 @@ export const recruiterQuickLinks = [
 /* ------------------------------------------------------------------ */
 
 export const investorStats = [
-  { id: "stat-125", stat: "125+", title: "Government releases processed", subtitle: "On2NextNow pipeline, Health & Finance", art: { from: "#e50914", to: "#1a0505" } },
+  { id: "stat-22", stat: "22", title: "Sectors every release is tagged to", subtitle: "BizEdge · live for On2NextNow", art: { from: "#3b82f6", to: "#0b1220" } },
+  { id: "stat-4h", stat: "4 hrs", title: "Between checks of every ministry", subtitle: "BizEdge's automated PIB pipeline", art: { from: "#e50914", to: "#1a0505" } },
+  { id: "stat-100k", stat: "100K", title: "Candidates ranked in ~32 seconds", subtitle: "ARIA · Redrob AI Hackathon", art: { from: "#f43f5e", to: "#1a0610" } },
   { id: "stat-85", stat: "70–85%", title: "Less manual deck-building", subtitle: "Automation shipped at Times Internet", art: { from: "#0b5cff", to: "#06122e" } },
   { id: "stat-55", stat: "55%", title: "Faster turnaround", subtitle: "Sync/async APIs across 6+ cohorts", art: { from: "#14b8a6", to: "#042f2e" } },
   { id: "stat-91", stat: "91%+", title: "Matching accuracy", subtitle: "ResumeMatch-AI scoring engine", art: { from: "#6366f1", to: "#0b1026" } },
@@ -572,9 +644,9 @@ export const heroByProfile = {
     song: { src: "/audio/investor.mp3", title: "Winning Speech", artist: "Karan Aujla" },
     headline: "Bet on the Builder.",
     blurb:
-      "I'm building On2NextNow — an AI layer that turns government releases into business intelligence — and shipping consumer products like LockIn on the side. Here's the traction, not just the pitch.",
-    chips: ["Director @ On2NextNow", "125+ releases processed", "Top 25 @ Google DeepMind hackathon"],
-    actions: [{ type: "open", item: "on2nextnow", label: "See the Venture" }, "linkedin", "contact"],
+      "I built and shipped BizEdge for On2NextNow — a live AI product that turns Indian government releases into business intelligence — and I build consumer products like LockIn on the side. Here's the traction, not just the pitch.",
+    chips: ["Director @ On2NextNow", "Built & deployed BizEdge", "Top 25 @ Google DeepMind hackathon"],
+    actions: [{ type: "open", item: "bizedge", label: "See BizEdge" }, "linkedin", "contact"],
   },
   collaborator: {
     photo: "/images/hero-collaborator.jpg",
@@ -615,7 +687,7 @@ const lockinVenture = {
     "A social fitness product: gym-goers get matched with workout buddies and stay consistent through shared streaks, GPS-verified check-ins and an AI coach. Live on web and mobile.",
 };
 
-const tryIt = pick(projects, ["lockin", "resumematch-ai", "nexus", "adaptive-risk-engine"]).map((p) => ({
+const tryIt = pick(projects, ["lockin", "setu", "resumematch-ai", "aria", "nexus", "adaptive-risk-engine"]).map((p) => ({
   ...p,
   id: `try-${p.id}`,
   subtitle: "Live — click Play to try it",
@@ -632,16 +704,16 @@ export const rowsByProfile = {
   ],
   // Ventures, numbers and operating track record.
   investor: [
-    { title: "Ventures", data: [byId(experience, "on2nextnow"), lockinVenture] },
+    { title: "Ventures", data: [bizedge, lockinVenture] },
     { title: "By the Numbers", data: investorStats },
     { title: "Competition Track Record", variant: "top10", data: hackathons },
     { title: "Leadership & Operations", data: leadership },
   ],
   // How I build, and what we could build together.
   collaborator: [
-    { title: "Currently Building", data: pick(projects, ["nexus", "lockin"]) },
+    { title: "Currently Building", data: pick(projects, ["lockin", "nexus", "setu"]) },
     { title: "Ideas I'd Jump On", data: openTo },
-    { title: "Systems to Dig Into", data: pick(projects, ["adaptive-risk-engine", "aegis", "resumematch-ai"]) },
+    { title: "Systems to Dig Into", data: pick(projects, ["aria", "adaptive-risk-engine", "aegis", "resumematch-ai"]) },
     { title: "Stack I Work In", data: skills },
     { title: "Open Source", data: [byId(achievements, "hf-transformers"), recruiterQuickLinks.find((q) => q.id === "github")] },
   ],
@@ -656,5 +728,5 @@ export const rowsByProfile = {
 
 /* Look up any item by id (used by hero buttons like "Explore Nexus"). */
 export function findItem(id) {
-  return [...projects, ...experience, ...achievements, ...offDuty, ...leadership, ...education].find((x) => x.id === id);
+  return [bizedge, ...projects, ...experience, ...achievements, ...offDuty, ...leadership, ...education].find((x) => x.id === id);
 }

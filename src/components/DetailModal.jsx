@@ -94,7 +94,13 @@ export default function DetailModal({ item, onClose, onMediaPlay }) {
             ) : (
             <div className="relative h-56 md:h-[380px]">
               <Poster item={item} large />
-              <div className="absolute inset-0 bg-gradient-to-t from-netflixDark via-netflixDark/30 to-transparent" />
+              <div
+                className={`absolute inset-0 bg-gradient-to-t ${
+                  item.poster && item.fit !== "contain"
+                    ? "from-netflixDark via-netflixDark/85 to-black/10"
+                    : "from-netflixDark via-netflixDark/30 to-transparent"
+                }`}
+              />
               <button
                 onClick={onClose}
                 aria-label="Close"
